@@ -1,0 +1,24 @@
+{
+    "name": "binkap/laraflash",
+    "description": "Flash Session messages for Laravel and Livewire",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Binkap\\Laraflash\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Binkap S",
+            "email": "real.desert.tiger@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "livewire/livewire": "^2.12"
+    }
+}
