@@ -16,6 +16,14 @@ composer require binkap/laraflash
 
 #
 
+## Publish assets
+
+```bash
+php artisan vendor:publish --tag=laraflash-assets
+```
+
+#
+
 ## Add the flash styles directive to layout
 
 ```html
@@ -30,12 +38,6 @@ composer require binkap/laraflash
 
 ```html
 <livewire:laraflash.container />
-```
-
-## Requiremets
-
-```php
-~ Livewire // Livewire is required to support livewire
 ```
 
 #
