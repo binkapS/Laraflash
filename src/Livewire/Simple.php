@@ -5,7 +5,6 @@ namespace Binkap\Laraflash\Livewire;
 
 use Binkap\Laraflash\Alert\Builder;
 use Binkap\Laraflash\Alert\Data;
-use Binkap\Laraflash\Alert\DataKey;
 use Binkap\Laraflash\Alert\Type;
 use Livewire\Component;
 
@@ -21,9 +20,14 @@ class Simple extends Component
 
     public function mount()
     {
-        if (!\is_null(\session(DataKey::MESSAGE->value, null)) && ($data = new Data)->getType() == Type::SIMPLE->value) {
+        if (!empty(($data = new Data)->getMessage()) && $data->getType() == Type::SIMPLE->value) {
             $this->alert(data: $data, builder: new Builder);
         }
+    }
+
+    public function close()
+    {
+        $this->visible = false;
     }
 
     public function alert(Data $data, Builder $builder)

@@ -20,5 +20,12 @@
     "minimum-stability": "stable",
     "require": {
         "livewire/livewire": "^2.12"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Binkap\\Laraflash\\LaraflashServiceProvider"
+            ]
+        }
     }
 }

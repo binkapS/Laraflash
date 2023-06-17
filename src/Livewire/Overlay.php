@@ -4,7 +4,6 @@ namespace Binkap\Laraflash\Livewire;
 
 use Binkap\Laraflash\Alert\Builder;
 use Binkap\Laraflash\Alert\Data;
-use Binkap\Laraflash\Alert\DataKey;
 use Binkap\Laraflash\Alert\Type;
 use Livewire\Component;
 
@@ -20,7 +19,7 @@ class Overlay extends Component
 
     public function mount()
     {
-        if (!\is_null(\session(DataKey::MESSAGE->value, null)) && ($data = new Data)->getType() == Type::OVERLAY->value) {
+        if (!empty(($data = new Data)->getMessage()) && $data->getType() == Type::OVERLAY->value) {
             $this->alert(data: $data, builder: new Builder);
         }
     }
@@ -29,6 +28,11 @@ class Overlay extends Component
     {
         $this->builder = $builder->setData(data: $data);
         $this->visible = true;
+    }
+
+    public function close()
+    {
+        $this->visible = false;
     }
 
     public function render()
