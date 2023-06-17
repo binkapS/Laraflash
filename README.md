@@ -18,8 +18,9 @@ composer require binkap/laraflash
 
 ## Requiremets
 
-```
-~ Tailwind CSS
+```php
+~ Tailwind CSS // Styling was done using tailwind
+~ Livewire // Livewire is required to support livewire
 ```
 
 #
@@ -143,8 +144,6 @@ LARAFLASH_MODE_INFO  // For information
 LARAFLASH_MODE_WARN  // For warnings
 LARAFLASH_MODE_ERROR // For errors
 ```
-
-#
 
 ## Rendering messages
 

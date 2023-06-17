@@ -28,5 +28,10 @@
                 "Binkap\\Laraflash\\LaraflashServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan vendor:publish --tag=laraflash--force"
+        ]
     }
 }
