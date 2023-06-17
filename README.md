@@ -16,6 +16,14 @@ composer require binkap/laraflash
 
 #
 
+## Requiremets
+
+```
+~ Tailwind CSS
+```
+
+#
+
 ## Flashing messages
 
 There are many syntax variations for adding flash messages, so you can choose the one you like the most.
@@ -84,8 +92,6 @@ flash(
     ); 
 ```
 
-#
-
 ## All methods
 
 ```php
@@ -101,8 +107,6 @@ $flash->info()  // For information
 $flash->warn()  // For warnings
 $flash->error() // For errors
 ```
-
-#
 
 ## All enums
 
@@ -124,8 +128,6 @@ Mode::WARN  // For warnings
 Mode::ERROR // For errors
 ```
 
-#
-
 ## All Constants
 
 ```php
@@ -146,12 +148,22 @@ LARAFLASH_MODE_ERROR // For errors
 
 ## Rendering messages
 
-#
-
 ### Add the flash container to your layout
 
 ```html
 <livewire:laraflash.container />
 ```
 
-## Example of Rendered messages
+## Rendered messages
+
+Here are example of rendered messages (In this case success)
+
+### Simple
+
+<p align="center"><img src="extra/simple.png" alt="Simple flash"></p>
+
+#
+
+### Overlay
+
+<p align="center"><img src="extra/overlay.png" alt="Overlay flash"></p>
