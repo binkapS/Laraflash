@@ -30,8 +30,8 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "php artisan vendor:publish --tag=laraflash--force"
+        "post-package-install": [
+            "@php artisan vendor:publish --tag=laraflash--force"
         ]
     }
 }

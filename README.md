@@ -16,10 +16,25 @@ composer require binkap/laraflash
 
 #
 
+## Add the flash styles directive to layout
+
+```html
+<head>
+    @laraflashStyles()
+</head>
+```
+
+#
+
+## Add the flash container to your layout
+
+```html
+<livewire:laraflash.container />
+```
+
 ## Requiremets
 
 ```php
-~ Tailwind CSS // Styling was done using tailwind
 ~ Livewire // Livewire is required to support livewire
 ```
 
@@ -143,14 +158,6 @@ LARAFLASH_MODE_SUCCESS  // For success messages
 LARAFLASH_MODE_INFO  // For information
 LARAFLASH_MODE_WARN  // For warnings
 LARAFLASH_MODE_ERROR // For errors
-```
-
-## Rendering messages
-
-### Add the flash container to your layout
-
-```html
-<livewire:laraflash.container />
 ```
 
 ## Rendered messages

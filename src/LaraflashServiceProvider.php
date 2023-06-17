@@ -20,11 +20,11 @@ class LaraflashServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->publishes([
-            // __DIR__ . \DIRECTORY_SEPARATOR . 'config' => \config_path(),
-            __DIR__ . \DIRECTORY_SEPARATOR . 'assets' => \public_path('vendor/laraflash'),
-            //__DIR__ . \DIRECTORY_SEPARATOR . 'views' . \DIRECTORY_SEPARATOR . 'livewire' => $this->app->resourcePath('views/vendor/laraflash'),
-        ], 'laraflash');
+        // $this->publishes([
+        // __DIR__ . \DIRECTORY_SEPARATOR . 'config' => \config_path(),
+        // __DIR__ . \DIRECTORY_SEPARATOR . 'views' . \DIRECTORY_SEPARATOR . 'livewire' => $this->app->resourcePath('views/vendor/laraflash'),
+        // ], 'laraflash');
+        $this->publishes([__DIR__ . \DIRECTORY_SEPARATOR . 'assets' => \public_path('vendor/laraflash'),], 'laraflash-assets');
         $this->loadViewsFrom(__DIR__ . \DIRECTORY_SEPARATOR . 'views', 'laraflash');
         Livewire::component('laraflash.container', Container::class);
         Livewire::component('laraflash.simple', Simple::class);
