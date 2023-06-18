@@ -3,9 +3,9 @@
 <p align="center">Flash Session messages for Laravel and Livewire</p>
 
 <p align="center">
-<a href="https://packagist.org/packages/binkap/laraflash"><img src="https://img.shields.io/packagist/dt/binkap/laraflash" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/binkap/laraflash"><img src="https://img.shields.io/packagist/dt/binkap/laraflash" alt="Total Installs"></a>
 <a href="https://packagist.org/packages/binkap/laraflash"><img src="https://img.shields.io/packagist/v/binkap/laraflash" alt="Latest Stable Version"></a>
-<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round" alt="Software License"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round" alt="Software License"></a>
 </p>
 
 ## Installation
@@ -38,6 +38,9 @@ php artisan vendor:publish --tag=laraflash-assets
 
 ```html
 <livewire:laraflash.container />
+
+<!-- If you are not using livewire in your project you need to add the directive below -->
+@livewireScripts()
 ```
 
 #
@@ -58,7 +61,7 @@ use function Binkap\Laraflash\flash;
 
 flash()->message('Message sent successfully')
 ->header('Success') // Headers are Optional
-->Overlay()  // Default is set to simple
+->overlay()  // Default is set to simple
 ->success() // Default is set to info
 ->livewire($component); /* Call the livewire method to flash the message with livewire */
 
@@ -71,7 +74,7 @@ use function Binkap\Laraflash\alert;
 
 alert()->message('Message sent successfully')
 ->header('Success') // Headers are Optional
-->Overlay()  // Default is set to simple
+->overlay()  // Default is set to simple
 ->success() // Default is set to info
 ->livewire($component); /* Call the livewire method to flash the message with livewire */
 ```
@@ -92,6 +95,7 @@ flash(
     mode: LARAFLASH_MODE_ERROR, /* Default set to LARAFLASH_MODE_INFO*/
     livewire: $component /* Pass a livewire component to flash the message with livewire */
     ); 
+    // Note to can still chain methods
 ```
 
 ## Or
@@ -112,6 +116,7 @@ flash(
     mode: Mode::WARN, /* Default set to Mode::INFO*/
     livewire: $component /* Pass a livewire component to flash the message with livewire */
     ); 
+    // Note to can still chain methods
 ```
 
 ## 2: Facade
@@ -125,7 +130,7 @@ use Binkap\Laraflash\Laraflash;
 
 Laraflash::message('Message sent successfully')
 ->header('Success') // Headers are Optional
-->Overlay()  // Default is set to simple
+->overlay()  // Default is set to simple
 ->success() // Default is set to info
 ->livewire($component); /* Call the livewire method to flash the message with livewire */
 ```
@@ -146,6 +151,7 @@ Laraflash::initialize(
     mode: LARAFLASH_MODE_ERROR, /* Default set to LARAFLASH_MODE_INFO*/
     livewire: $component /* Pass a livewire component to flash the message with livewire */
     ); 
+    // Note to can still chain methods
 ```
 
 ## Or
@@ -166,6 +172,65 @@ Laraflash::initialize(
     mode: Mode::WARN, /* Default set to Mode::INFO*/
     livewire: $component /* Pass a livewire component to flash the message with livewire */
     ); 
+    // Note to can still chain methods
+```
+
+#
+
+# 3: Use Flash Class
+
+#
+
+### Method chaining
+
+```php
+use Binkap\Laraflash\Flash;
+
+(new Flash)->message('Message sent successfully')
+->header('Success') // Headers are Optional
+->overlay()  // Default is set to simple
+->success() // Default is set to info
+->livewire($component); /* Call the livewire method to flash the message with livewire */
+```
+
+#
+
+### Parameters
+
+```php
+use Binkap\Laraflash\Flash;
+
+// Using Constants
+
+(new Flash)->initialize(
+    message: 'Message sent successfully', 
+    header: 'Success', /* Optional*/
+    type: LARAFLASH_TYPE_OVERLAY, /* Default set to LARAFLASH_TYPE_INFO*/
+    mode: LARAFLASH_MODE_ERROR, /* Default set to LARAFLASH_MODE_INFO*/
+    livewire: $component /* Pass a livewire component to flash the message with livewire */
+    ); 
+    // Note to can still chain methods
+```
+
+## Or
+
+```php
+
+use Binkap\Laraflash\Type;
+use Binkap\Laraflash\Mode;
+
+use Binkap\Laraflash\Flash;
+
+// Using ENUMs
+
+(new Flash)->initialize(
+    message: 'Message sent successfully', 
+    header: 'Success', /* Optional*/
+    type: Type::OVERLAY, /* Default set to Type::OVERLAY */
+    mode: Mode::WARN, /* Default set to Mode::INFO*/
+    livewire: $component /* Pass a livewire component to flash the message with livewire */
+    ); 
+    // Note to can still chain methods
 ```
 
 #
