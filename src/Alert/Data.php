@@ -84,6 +84,11 @@ class Data
         ]);
     }
 
+    public function set(string $key, mixed $value)
+    {
+        \session([$key => $value]);
+    }
+
     private function get(string $key)
     {
         return \session($key, '');

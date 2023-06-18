@@ -11,22 +11,25 @@ class Flash
 {
     private Component|null $component = null;
 
-    private Data $data;
+    protected Data $data;
+
+    public function __construct()
+    {
+        $this->data = new Data;
+    }
 
     public function initialize(
         string $message,
         string $header,
         Type $type,
         Mode $mode,
-        Data $data,
         Component|null $component,
     ): Flash|null {
         $this->component = $component;
-        $data->setHeader($header);
-        $data->setMessage($message);
-        $data->setMode($mode);
-        $data->setType($type);
-        $this->data = $data;
+        $this->data->setHeader($header);
+        $this->data->setMessage($message);
+        $this->data->setMode($mode);
+        $this->data->setType($type);
         return $this;
     }
 

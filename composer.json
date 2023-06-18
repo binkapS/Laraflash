@@ -26,7 +26,10 @@
         "laravel": {
             "providers": [
                 "Binkap\\Laraflash\\LaraflashServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Laraflash": "Binkap\\Laraflash\\LaraflashFacade"
+            }
         }
     }
 }

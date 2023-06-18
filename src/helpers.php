@@ -2,7 +2,6 @@
 
 namespace Binkap\Laraflash;
 
-use Binkap\Laraflash\Alert\Data;
 use Binkap\Laraflash\Alert\Mode;
 use Binkap\Laraflash\Alert\Type;
 use Binkap\Laraflash\Flash;
@@ -22,7 +21,6 @@ function flash(
     string $header = '',
     Type $type = Type::SIMPLE,
     Mode $mode = Mode::INFO,
-    Data $data = new Data,
     Component|null $component = null,
 ) {
     return (new Flash)->initialize(
@@ -30,7 +28,6 @@ function flash(
         header: $header,
         type: $type,
         mode: $mode,
-        data: $data,
         component: $component
     );
 }
@@ -40,7 +37,6 @@ function alert(
     string $header = '',
     Type $type = Type::SIMPLE,
     Mode $mode = Mode::INFO,
-    Data $data = new Data,
     Component|null $component = null,
 ) {
     return (new Flash)->initialize(
@@ -48,7 +44,6 @@ function alert(
         header: $header,
         type: $type,
         mode: $mode,
-        data: $data,
         component: $component
     );
 }

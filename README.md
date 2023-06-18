@@ -46,6 +46,10 @@ php artisan vendor:publish --tag=laraflash-assets
 
 There are many syntax variations for adding flash messages, so you can choose the one you like the most.
 
+## 1: Helper Functions
+
+#
+
 ### Method chaining
 
 ```php
@@ -109,6 +113,62 @@ flash(
     livewire: $component /* Pass a livewire component to flash the message with livewire */
     ); 
 ```
+
+## 2: Facade
+
+#
+
+### Method chaining
+
+```php
+use Binkap\Laraflash\Laraflash;
+
+Laraflash::message('Message sent successfully')
+->header('Success') // Headers are Optional
+->Overlay()  // Default is set to simple
+->success() // Default is set to info
+->livewire($component); /* Call the livewire method to flash the message with livewire */
+```
+
+#
+
+### Parameters
+
+```php
+use Binkap\Laraflash\Laraflash;
+
+// Using Constants
+
+Laraflash::initialize(
+    message: 'Message sent successfully', 
+    header: 'Success', /* Optional*/
+    type: LARAFLASH_TYPE_OVERLAY, /* Default set to LARAFLASH_TYPE_INFO*/
+    mode: LARAFLASH_MODE_ERROR, /* Default set to LARAFLASH_MODE_INFO*/
+    livewire: $component /* Pass a livewire component to flash the message with livewire */
+    ); 
+```
+
+## Or
+
+```php
+
+use Binkap\Laraflash\Type;
+use Binkap\Laraflash\Mode;
+
+use Binkap\Laraflash\Laraflash;
+
+// Using ENUMs
+
+Laraflash::initialize(
+    message: 'Message sent successfully', 
+    header: 'Success', /* Optional*/
+    type: Type::OVERLAY, /* Default set to Type::OVERLAY */
+    mode: Mode::WARN, /* Default set to Mode::INFO*/
+    livewire: $component /* Pass a livewire component to flash the message with livewire */
+    ); 
+```
+
+#
 
 ## All methods
 
