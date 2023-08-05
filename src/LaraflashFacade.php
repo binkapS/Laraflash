@@ -22,7 +22,7 @@ class LaraflashFacade extends Flash
 
     public function livewire(Component $component): void
     {
-        $component->emit($this->data->getType());
+        $component->dispatch($this->data->getType());
     }
 
     public function simple()

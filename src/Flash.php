@@ -85,7 +85,7 @@ class Flash
     {
         $this->data->build();
         if (!\is_null($this->component)) {
-            $this->component->emit($this->data->getType());
+            $this->component->dispatch($this->data->getType());
         }
     }
 
