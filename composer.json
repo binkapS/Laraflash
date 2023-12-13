@@ -20,7 +20,7 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^8.1",
-        "livewire/livewire": "^3.0@beta"
+        "livewire/livewire": "^3.3"
     },
     "extra": {
         "laravel": {
