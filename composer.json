@@ -19,8 +19,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^8.1",
-        "livewire/livewire": "^3.3"
+        "php": "^8.1"
     },
     "extra": {
         "laravel": {
@@ -28,7 +27,7 @@
                 "Binkap\\Laraflash\\LaraflashServiceProvider"
             ],
             "aliases": {
-                "Laraflash": "Binkap\\Laraflash\\LaraflashFacade"
+                "Laraflash": "Binkap\\Laraflash\\Laraflash"
             }
         }
     }

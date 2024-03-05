@@ -2,102 +2,66 @@
 
 namespace Binkap\Laraflash;
 
-use Binkap\Laraflash\Alert\Data;
-use Binkap\Laraflash\Alert\Mode;
-use Binkap\Laraflash\Alert\Type;
-use Livewire\Component;
+use Binkap\Laraflash\Mode;
 
 class Flash
 {
-    private Component|null $component = null;
+    private string $message;
 
-    protected Data $data;
+    private Mode $mode;
 
-    public function __construct()
+    private bool $livewire = false;
+
+    public function __construct(string $message = '', Mode $mode = Mode::DEFAULT)
     {
-        $this->data = new Data;
+        $this->message = $message;
+        $this->mode = $mode;
     }
 
-    public function initialize(
-        string $message,
-        string $header,
-        Type $type,
-        Mode $mode,
-        Component|null $component,
-    ): Flash|null {
-        $this->component = $component;
-        $this->data->setHeader($header);
-        $this->data->setMessage($message);
-        $this->data->setMode($mode);
-        $this->data->setType($type);
+    public function message(string $message): static
+    {
+        $this->message = $message;
         return $this;
     }
 
-    public function message(string $message)
+    public function success(): static
     {
-        $this->data->setMessage($message);
+        $this->mode = Mode::SUCCESS;
         return $this;
     }
 
-    public function header(string $header)
+    public function warning(): static
     {
-        $this->data->setHeader($header);
+        $this->mode = Mode::WARNING;
         return $this;
     }
 
-    public function livewire(Component $component)
+    public function danger(): static
     {
-        $this->component = $component;
+        $this->mode = Mode::DANGER;
         return $this;
     }
 
-    public function simple()
+    public function livewire(\Livewire\Component $component): void
     {
-        return $this->setType(Type::SIMPLE);
-    }
-
-    public function overlay()
-    {
-        return $this->setType(Type::OVERLAY);
-    }
-
-    public function info()
-    {
-        return $this->setMode(Mode::INFO);
-    }
-
-    public function success()
-    {
-        return $this->setMode(Mode::SUCCESS);
-    }
-
-    public function warn()
-    {
-        return $this->setMode(Mode::WARN);
-    }
-
-    public function error()
-    {
-        return $this->setMode(Mode::ERROR);
+        $this->livewire = true;
+        $component->dispatch(
+            'laraflash-messages',
+            ['laraflashMessages' => $this->build()],
+        );
     }
 
     public function __destruct()
     {
-        $this->data->build();
-        if (!\is_null($this->component)) {
-            $this->component->dispatch($this->data->getType());
+        if (!$this->livewire) {
+            session(['laraflash-messages' => $this->build()]);
         }
     }
 
-    private function setType(Type $type)
+    private function build(): array
     {
-        $this->data->setType($type);
-        return $this;
-    }
-
-    private function setMode(Mode $mode)
-    {
-        $this->data->setMode($mode);
-        return $this;
+        return [
+            $this->mode->value => [$this->message],
+        ];
     }
 }
