@@ -87,4 +87,4 @@ Here are example of rendered messages
 
 <p align="center"><img src="extra/light.png" alt="LightMode flash"></p>
 
-See [CHANGELOG](CHAGELOG.MD) for Changes
+See [CHANGELOG](CHANGELOG.md) for Changes
