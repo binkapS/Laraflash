@@ -1,4 +1,4 @@
-<section id='laraflash-messages' class="absolute top-16 right-8 z-50 overflow-y-auto">
+<section id='laraflash-messages' class="fixed top-16 right-8 z-50 overflow-y-auto">
     @if (session()->has('laraflash-messages'))
     @if (in_array('default', array_keys(session('laraflash-messages')), true))
     @foreach (session('laraflash-messages')['default'] as $message)
