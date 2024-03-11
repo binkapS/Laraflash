@@ -43,7 +43,7 @@ All notable changes to this project will be documented in this file. See [Semant
 
 ### Contributors
 
-- [Binkap S](https:www.binkap.com/)
+- <https://github.com/binkapS/>
 
 ### Acknowledgments
 
