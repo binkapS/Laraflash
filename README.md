@@ -81,10 +81,10 @@ Here are example of rendered messages
 
 ### DarkMode
 
-<p align="center"><img src="extra/dark.png" alt="DarkMode flash"></p>
+<p align="center"><img src="https://www.binkap.com/storage/laraflash/bm3thocdrsnaix0qay9p.png" alt="DarkMode flash"></p>
 
 ### LightMode
 
-<p align="center"><img src="extra/light.png" alt="LightMode flash"></p>
+<p align="center"><img src="https://www.binkap.com/storage/laraflash/sys5i3mw659agn3hcx1e.png" alt="LightMode flash"></p>
 
 See [CHANGELOG](CHANGELOG.md) for Changes

@@ -7,7 +7,7 @@
     ?>
     <script>
         var laraflash = document.querySelector('#laraflash-messages');
-            window.onload = loadMessages(<?php echo $laraflashMessages ?? '{}' ;?>);
+            loadMessages(<?php echo $laraflashMessages ?? '{}' ;?>);
             document.addEventListener('livewire:init', () => {
             Livewire.on('laraflash-messages', (event) => {
             loadMessages(event[0].laraflashMessages);
